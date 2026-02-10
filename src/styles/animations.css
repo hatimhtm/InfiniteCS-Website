@@ -1,0 +1,133 @@
+/* ═══════════════  ANIMATIONS  ═══════════════ */
+
+/* Loader */
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .6s, visibility .6s;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-brand {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -.03em;
+    color: var(--slate-900);
+    animation: pulse 2s infinite;
+}
+
+.loader-brand span {
+    color: var(--cyan-500);
+}
+
+.loader-subtitle {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--slate-400);
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.loader-bar-wrap {
+    width: 180px;
+    height: 3px;
+    background: var(--slate-200);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.loader-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--blue-500), var(--cyan-500));
+    border-radius: 3px;
+    transition: width .1s;
+}
+
+.loader-pct {
+    font-size: 12px;
+    color: var(--slate-400);
+    font-family: monospace;
+    margin-top: 8px;
+}
+
+/* Keyframes */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .6;
+    }
+}
+
+@keyframes ping {
+
+    75%,
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+@keyframes blob {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(.95);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* GSAP — fade targets start invisible */
+.gsap-hero {
+    opacity: 0;
+    transform: translateY(40px);
+}
