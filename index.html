@@ -7,6 +7,20 @@
     <title>Infinite Contact Solutions LLC | Enterprise Outsourcing</title>
     <meta name="description"
         content="Enterprise-grade BPO solutions with 24/7 operations. Headquartered in Texas, operating from the Philippines. Cut costs by 35% while scaling your team.">
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Infinite Contact Solutions LLC — Enterprise Outsourcing">
+    <meta property="og:description" content="24/7 BPO operations from Texas + Philippines. Cut costs 35%, scale teams in 3 weeks.">
+    <meta property="og:url" content="https://infinitecs.example.com">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Infinite Contact Solutions LLC — Enterprise Outsourcing">
+    <meta name="twitter:description" content="24/7 BPO operations from Texas + Philippines. Cut costs 35%, scale teams in 3 weeks.">
+
+    <!-- Favicon (inline SVG — no asset round-trip) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2306b6d4'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Inter,sans-serif' font-size='40' font-weight='800' fill='white' text-anchor='middle'%3EI%3C/text%3E%3C/svg%3E">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,12 +29,30 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Icons — pinned to 0.469.0 for reproducibility -->
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP — pinned to 3.12.5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Structured data (Organization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Infinite Contact Solutions LLC",
+      "alternateName": "InfiniteCS",
+      "url": "https://infinitecs.example.com",
+      "description": "Enterprise-grade BPO with 24/7 operations from Texas HQ and Philippines hubs.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Carrollton",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      }
+    }
+    </script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="/src/styles/variables.css">
@@ -43,6 +75,9 @@
         </div>
         <div class="loader-pct" id="loaderPct">0%</div>
     </div>
+
+    <!-- ────────────── SCROLL PROGRESS ────────────── -->
+    <div id="scroll-progress" aria-hidden="true"><div id="scroll-progress-fill"></div></div>
 
     <!-- ────────────── NAVIGATION ────────────── -->
     <nav id="navbar">
@@ -426,6 +461,113 @@
         </div>
     </section>
 
+    <!-- ────────────── TESTIMONIALS ────────────── -->
+    <section id="testimonials" class="section testimonials-section">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-tag">What Clients Say</span>
+                <h2 class="section-heading">Trusted By Teams<br><span class="gradient-text">Like Yours</span></h2>
+                <p class="section-sub">Operations leaders, customer-experience VPs, and founders — the people who actually live with our work.</p>
+            </div>
+            <div class="testimonials-grid">
+                <figure class="glass-card testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                    </div>
+                    <blockquote>Our after-hours response times collapsed from 5+ minutes to under 2. The handoff to ICS was the smoothest BPO transition we've run in eight years.</blockquote>
+                    <figcaption>
+                        <div class="testimonial-avatar"><span>SR</span></div>
+                        <div>
+                            <strong>Sarah Reinhardt</strong>
+                            <span>VP Customer Experience · Sample Co.</span>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <figure class="glass-card testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                    </div>
+                    <blockquote>We scaled from 12 agents to 64 in under a month. The Manila team felt embedded in our culture by week three — that's almost unheard of.</blockquote>
+                    <figcaption>
+                        <div class="testimonial-avatar"><span>DM</span></div>
+                        <div>
+                            <strong>Daniel Marquez</strong>
+                            <span>Director of Operations · Demo Corp.</span>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <figure class="glass-card testimonial-card">
+                    <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                        <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                    </div>
+                    <blockquote>The dashboards alone justified the contract. We catch SLA drift hours earlier than we did with our last vendor, and the cost line dropped 38%.</blockquote>
+                    <figcaption>
+                        <div class="testimonial-avatar"><span>AJ</span></div>
+                        <div>
+                            <strong>Aliyah Johnson</strong>
+                            <span>Head of Support · Example Inc.</span>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <p class="testimonials-disclaimer">
+                <i data-lucide="info"></i>
+                These testimonials are placeholders for the portfolio demo. In a live build they'd be replaced with real, attributed quotes.
+            </p>
+        </div>
+    </section>
+
+    <!-- ────────────── FAQ ────────────── -->
+    <section id="faq" class="section faq-section">
+        <div class="container faq-container">
+            <div class="section-header centered">
+                <span class="section-tag">Questions</span>
+                <h2 class="section-heading">Answers Before<br><span class="gradient-text">You Even Ask</span></h2>
+            </div>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>
+                        <span>How fast can you actually ramp up a new team?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </summary>
+                    <p>50-agent teams reach production-ready in 18–21 days. That includes recruiting from our Manila talent pool, three weeks of role-specific training, and a 5-day shadowing handoff with your internal leads.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        <span>How do you handle data security and compliance?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </summary>
+                    <p>SOC 2 Type II controls across all hubs, ISO 27001 alignment, and per-client data isolation. We sign DPAs and BAAs and stand up dedicated VLANs for regulated workloads.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        <span>What does pricing look like?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </summary>
+                    <p>Per-agent FTE pricing with volume bands. Typical clients see 35–45% reduction vs. domestic in-house headcount, fully loaded. We don't do per-minute or per-ticket pricing — that's how vendors over-bill.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        <span>Do you handle non-English support?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </summary>
+                    <p>English-first by default. Spanish and Tagalog at scale. Other languages on a case-by-case basis — we'll be honest with you up front about agent availability and ramp time.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>
+                        <span>What happens if we want to wind down?</span>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </summary>
+                    <p>30-day notice, no clawback, full data return. We help you cut over to in-house or another vendor — your operation, your timeline. The relationship is built to be cancellable; that's how we keep ourselves honest.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- ────────────── CONTACT ────────────── -->
     <section id="contact" class="section contact-section">
         <div class="container grid-2col contact-grid">
@@ -438,11 +580,11 @@
                 <div class="contact-details">
                     <div class="contact-item">
                         <div class="icon-box cyan"><i data-lucide="mail"></i></div>
-                        <div><strong>Email</strong><span>info@infinitecontactsolutions.com</span></div>
+                        <div><strong>Email</strong><span>hello@example.com</span></div>
                     </div>
                     <div class="contact-item">
                         <div class="icon-box blue"><i data-lucide="phone"></i></div>
-                        <div><strong>Phone</strong><span>+1 (469) 804-0734</span></div>
+                        <div><strong>Phone</strong><span>+1 (555) 010-0000</span></div>
                     </div>
                     <div class="contact-item">
                         <div class="icon-box teal"><i data-lucide="map-pin"></i></div>
@@ -451,8 +593,11 @@
                 </div>
             </div>
 
-            <form class="contact-form glass-card" id="contactForm" action="https://formspree.io/f/yourformid"
-                method="POST">
+            <form class="contact-form glass-card" id="contactForm" method="POST">
+                <div class="form-demo-banner">
+                    <i data-lucide="info"></i>
+                    <span>Portfolio demo — the form doesn't submit anywhere. For a real build, wire to Formspree, Resend, or your own endpoint.</span>
+                </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
@@ -483,6 +628,27 @@
         </div>
     </section>
 
+    <!-- ────────────── PRE-FOOTER CTA ────────────── -->
+    <section class="cta-strip">
+        <div class="container cta-strip-inner glass-card-dark">
+            <div>
+                <h3>Ready to transform your operations?</h3>
+                <p>A 30-minute call. No deck. We talk about your bottleneck and tell you whether we can fix it. If we can't, we'll point you to someone who can.</p>
+            </div>
+            <a href="#contact" class="btn-primary cta-strip-btn">
+                Book a discovery call <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Demo-form toast (controlled inline on the form submit handler) -->
+    <div id="form-demo-toast" class="form-demo-toast" role="status" aria-live="polite">
+        <i data-lucide="check-circle"></i>
+        <div>
+            <strong>Thanks!</strong> This is a portfolio demo — nothing was actually sent.
+        </div>
+    </div>
+
     <!-- ────────────── FOOTER ────────────── -->
     <footer class="footer">
         <div class="container footer-inner">
@@ -509,8 +675,8 @@
                 </div>
                 <div>
                     <h5>Contact</h5>
-                    <a href="mailto:info@infinitecontactsolutions.com">Email Us</a>
-                    <a href="tel:+14698040734">+1 (469) 804-0734</a>
+                    <a href="mailto:hello@example.com">Email Us</a>
+                    <a href="tel:+15550100000">+1 (555) 010-0000</a>
                     <a href="#global">Our Locations</a>
                 </div>
             </div>

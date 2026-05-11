@@ -105,10 +105,19 @@ function initNav() {
     const sections = document.querySelectorAll('section[id]');
     const hamburger = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+    const progressFill = document.getElementById('scroll-progress-fill');
 
-    // Scroll state
+    // Single scroll listener handles nav state, active section, AND the
+    // top-of-page progress bar — one event, one layout read.
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 60);
+
+        // Scroll-progress bar (0–100% as we move through the document)
+        if (progressFill) {
+            const max = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+            progressFill.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
 
         // Active section detection
         let current = '';
@@ -119,7 +128,7 @@ function initNav() {
         links.forEach(link => {
             link.classList.toggle('active', link.getAttribute('href') === '#' + current);
         });
-    });
+    }, { passive: true });
 
     // Hamburger
     hamburger?.addEventListener('click', () => {
@@ -157,21 +166,29 @@ function initSmoothScroll() {
     });
 }
 
-/* ═══════════════  CONTACT FORM  ═══════════════ */
+/* ═══════════════  CONTACT FORM (demo)  ═══════════════ */
+// The site has no backend — submits are intercepted and acknowledged with a
+// toast + brief button state change. For a real deployment, wire to Formspree,
+// Resend, or your own /api endpoint.
 function initContactForm() {
     const form = document.getElementById('contactForm');
+    const toast = document.getElementById('form-demo-toast');
     form?.addEventListener('submit', (e) => {
         e.preventDefault();
         const btn = form.querySelector('button[type="submit"]');
-        btn.innerHTML = '<i data-lucide="check"></i> Message Sent!';
+        btn.innerHTML = '<i data-lucide="check"></i> Acknowledged';
         btn.style.background = 'var(--green-500)';
         lucide.createIcons();
+
+        toast?.classList.add('show');
+
         setTimeout(() => {
+            toast?.classList.remove('show');
             btn.innerHTML = 'Send Message <i data-lucide="send"></i>';
             btn.style.background = '';
             lucide.createIcons();
             form.reset();
-        }, 3000);
+        }, 3500);
     });
 }
 
