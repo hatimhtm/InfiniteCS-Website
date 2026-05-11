@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Vite build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Sanity-check dist
+        run: |
+          test -f dist/index.html
+          test -d dist/assets
+          echo "Bundle size: $(du -sh dist | cut -f1)"
+          # Confirm new sections actually made it into the build
+          grep -q 'testimonials-section'  dist/index.html
+          grep -q 'faq-section'           dist/index.html
+          grep -q 'cta-strip'             dist/index.html
+          grep -q 'scroll-progress-fill'  dist/index.html
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 14
