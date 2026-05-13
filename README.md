@@ -151,6 +151,14 @@ Static output — drop `dist/` onto any host (Vercel, Netlify, S3 + CloudFront, 
 
 ---
 
+### `/// STATUS`
+
+🟢 **Live** — [hatimhtm.github.io/InfiniteCS-Website](https://hatimhtm.github.io/InfiniteCS-Website/)
+
+Auto-deploys to GitHub Pages on every push to `main` via `.github/workflows/deploy-pages.yml` (Vite static build, `base: "/InfiniteCS-Website/"`).
+
+---
+
 ### `/// LICENSE`
 
 [MIT](LICENSE). Fork it, learn from it, re-skin it for your own BPO pitch — just keep the copyright line. The prospect's name and any company-specific copy are placeholders / generic; rewrite to suit yours.
